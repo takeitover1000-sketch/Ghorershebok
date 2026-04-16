@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ঘরের শেবক - হোম সার্ভিস</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables based on your React COLORS */
+        :root {
+            --primary: #8B4513;
+            --primary-light: #A0522D;
+            --primary-dark: #5C2E00;
+            --accent: #C8956C;
+            --accent-light: #E8C4A0;
+            --cream: #F5F0E8;
+            --dark: #2C1810;
+            --text: #3D2314;
+            --white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Hind Siliguri', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+        /* Navbar Styles */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+            padding: 0 5%; height: 70px; display: flex; align-items: center;
+            transition: all 0.3s;
+        }
+        nav.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); box-shadow: 0 2px 30px rgba(0,0,0,0.1); }
+        
+        /* Hero Styles */
+        .hero-bg {
+            background: linear-gradient(135deg, #2C1810 0%, #5C2E00 40%, #8B4513 70%, #A0522D 100%);
+            min-height: 88vh; display: flex; align-items: center; padding: 100px 5% 60px;
+            position: relative; color: white;
+        }
+
+        .search-bar {
+            background: white; border-radius: 16px; display: flex; max-width: 720px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2); margin-top: 30px; overflow: hidden;
+        }
+        
+        .search-input { flex: 1; border: none; padding: 18px; outline: none; }
+        .search-btn { background: var(--primary); color: white; border: none; padding: 0 30px; cursor: pointer; font-weight: 600; }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; padding: 80px 5%; max-width: 1200px; margin: 0 auto;
+        }
+        .service-card {
+            background: white; border-radius: 16px; padding: 24px; text-align: center;
+            transition: transform 0.3s; border: 1.5px solid transparent;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent-light); }
+
+        .sos-badge {
+            background: linear-gradient(135deg, #FF4444, #FF6B6B); color: white;
+            padding: 8px 16px; border-radius: 20px; font-size: 14px; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,68,68,0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255,68,68,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,68,68,0); }
+        }
+
+        footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 50px 5%; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <h2 style="color: var(--primary);">🏠 ঘরের শেবক</h2>
+    </nav>
+
+    <section class="hero-bg">
+        <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+            <span class="sos-badge">🚨 SOS সার্ভিস: ১ ঘণ্টায় বিশেষজ্ঞ আসবে</span>
+            <h1 style="font-size: 48px; margin-top: 20px;">আপনার ঘরের যেকোনো সমস্যার <br><span style="color: var(--accent-light);">বিশ্বস্ত সমাধান</span></h1>
+            
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="কী সেবা প্রয়োজন? যেমন: AC সার্ভিস...">
+                <button class="search-btn">খুঁজুন</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-grid">
+        <div class="service-card"><h3>❄️ AC সার্ভিস</h3><p>১২০০+ বুকিং</p></div>
+        <div class="service-card"><h3>🔧 প্লাম্বিং</h3><p>৮০০+ বুকিং</p></div>
+        <div class="service-card"><h3>⚡ ইলেকট্রিক্যাল</h3><p>৯৫০+ বুকিং</p></div>
+        <div class="service-card"><h3>🏠 হোম ক্লিনিং</h3><p>২১০০+ বুকিং</p></div>
+    </section>
+
+    <footer>
+        <p>© ২০২৬ ঘরের শেবক। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        // Simple Navbar Scroll Logic
+        window.onscroll = function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 60) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+    </script>
+</body>
+</html>
